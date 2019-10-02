@@ -16,6 +16,8 @@ class CameraViewController: UIViewController {
 	/// would be best to put this in a wrapper for better mvc
 	lazy private var fileOutput = AVCaptureMovieFileOutput()
 
+	private var player: AVPlayer!
+
 	@IBOutlet var recordButton: UIButton!
 	@IBOutlet var cameraView: CameraPreviewView!
 
@@ -25,6 +27,26 @@ class CameraViewController: UIViewController {
 
 		setupCamera()
 		updateViews()
+
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
+		view.addGestureRecognizer(tapGesture)
+	}
+
+	@objc func handleTapGesture(_ tapGesture: UITapGestureRecognizer) {
+		switch tapGesture.state {
+		case .ended:
+			print("tapped!")
+			replayVideo()
+		default:
+			print("handle other states: \(tapGesture.state)")
+		}
+	}
+
+	func replayVideo() {
+		if let player = player {
+			player.seek(to: CMTime.zero)
+			player.play()
+		}
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -55,6 +77,17 @@ class CameraViewController: UIViewController {
 			captureSession.sessionPreset = .hd1920x1080
 		}
 
+		// input audio
+		let microphone = audio()
+		guard let audioInput = try? AVCaptureDeviceInput(device: microphone) else {
+			fatalError("cant create input from mic")
+		}
+
+		guard captureSession.canAddInput(audioInput) else {
+			fatalError("can't add audio input")
+		}
+		captureSession.addInput(audioInput)
+
 		//output
 		guard captureSession.canAddOutput(fileOutput) else {
 			fatalError("Can't save to file")
@@ -73,6 +106,17 @@ class CameraViewController: UIViewController {
 		}
 
 		fatalError("No cameras")
+	}
+
+	private func audio() -> AVCaptureDevice {
+//		if let device = AVCaptureDevice.default(.builtInMicrophone, for: .audio, position: .back) {
+//			return device
+//		}
+
+		if let device = AVCaptureDevice.default(for: .audio) {
+			return device
+		}
+		fatalError("no audio device")
 	}
 
 	@IBAction func recordButtonPressed(_ sender: Any) {
@@ -100,6 +144,21 @@ class CameraViewController: UIViewController {
 		}
 	}
 
+	func playMovie(url: URL) {
+		player = AVPlayer(url: url)
+
+		let playerLayer = AVPlayerLayer(player: player)
+		var topRect = self.view.bounds
+		topRect.size.width /= 4
+		topRect.size.height /= 4
+		topRect.origin.y = view.layoutMargins.top
+
+		playerLayer.frame = topRect
+		view.layer.addSublayer(playerLayer)
+
+		player.play()
+	}
+
 	private func newTempURL(withFileExtension fileExtension: String? = nil) -> URL {
 		let tempDir = URL(fileURLWithPath: NSTemporaryDirectory())
 		let name = UUID().uuidString
@@ -119,6 +178,7 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
 	func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
 		DispatchQueue.main.async {
 			self.updateViews()
+			self.playMovie(url: outputFileURL)
 		}
 	}
 }
