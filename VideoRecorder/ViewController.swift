@@ -20,8 +20,6 @@ class ViewController: UIViewController {
 		
 		// TODO: get permission
 		
-		showCamera()
-		
 	}
 	
 	private func showCamera() {

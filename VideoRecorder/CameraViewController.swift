@@ -10,8 +10,8 @@ import UIKit
 
 class CameraViewController: UIViewController {
 
-    @IBOutlet var recordButton: UIButton!
-    @IBOutlet var cameraView: CameraPreviewView!
+	@IBOutlet var recordButton: UIButton!
+	@IBOutlet var cameraView: CameraPreviewView!
 
 
 	override func viewDidLoad() {
@@ -20,7 +20,7 @@ class CameraViewController: UIViewController {
 	}
 
 
-    @IBAction func recordButtonPressed(_ sender: Any) {
+	@IBAction func recordButtonPressed(_ sender: Any) {
 
 	}
 }
