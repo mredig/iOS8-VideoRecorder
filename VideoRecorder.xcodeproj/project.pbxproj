@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BD891F2A234504D00035EB8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD891F29234504D00035EB8C /* AppDelegate.swift */; };
-		BD891F2C234504D00035EB8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD891F2B234504D00035EB8C /* SceneDelegate.swift */; };
 		BD891F2E234504D00035EB8C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD891F2D234504D00035EB8C /* CameraViewController.swift */; };
 		BD891F33234504D20035EB8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD891F32234504D20035EB8C /* Assets.xcassets */; };
 		BD891F36234504D20035EB8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD891F34234504D20035EB8C /* LaunchScreen.storyboard */; };
@@ -20,7 +19,6 @@
 /* Begin PBXFileReference section */
 		BD891F26234504D00035EB8C /* VideoRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD891F29234504D00035EB8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD891F2B234504D00035EB8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BD891F2D234504D00035EB8C /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		BD891F32234504D20035EB8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD891F35234504D20035EB8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				BD891F29234504D00035EB8C /* AppDelegate.swift */,
-				BD891F2B234504D00035EB8C /* SceneDelegate.swift */,
 				BD891F2D234504D00035EB8C /* CameraViewController.swift */,
 				BD891F3D2345055E0035EB8C /* CameraPreviewView.swift */,
 				BD891F41234505DB0035EB8C /* ViewController.swift */,
@@ -148,7 +145,6 @@
 				BD891F3E2345055E0035EB8C /* CameraPreviewView.swift in Sources */,
 				BD891F2E234504D00035EB8C /* CameraViewController.swift in Sources */,
 				BD891F2A234504D00035EB8C /* AppDelegate.swift in Sources */,
-				BD891F2C234504D00035EB8C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +281,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = L5UZAT7KA9;
 				INFOPLIST_FILE = VideoRecorder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,8 +300,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = L5UZAT7KA9;
 				INFOPLIST_FILE = VideoRecorder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
