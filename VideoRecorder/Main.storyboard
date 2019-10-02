@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOS6_VideoRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VideoRecorder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,12 +29,12 @@
         <!--Camera View Controller-->
         <scene sceneID="ezq-ug-gty">
             <objects>
-                <viewController storyboardIdentifier="CameraView" id="B5a-nt-rvl" customClass="CameraViewController" customModule="iOS6_VideoRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraView" id="B5a-nt-rvl" customClass="CameraViewController" customModule="VideoRecorder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AH0-9n-H7R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6r-zh-7rP" customClass="CameraPreviewView" customModule="iOS6_VideoRecorder" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6r-zh-7rP" customClass="CameraPreviewView" customModule="VideoRecorder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -46,6 +46,7 @@
                                 </constraints>
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="Record"/>
+                                <state key="selected" image="Stop"/>
                                 <connections>
                                     <action selector="recordButtonPressed:" destination="B5a-nt-rvl" eventType="touchUpInside" id="i30-Jd-xjh"/>
                                 </connections>
@@ -74,5 +75,6 @@
     </scenes>
     <resources>
         <image name="Record" width="116" height="116"/>
+        <image name="Stop" width="116" height="116"/>
     </resources>
 </document>
